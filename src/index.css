@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Electric-inspired color palette */
+    --background: 220 20% 98%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Electric green primary with energy feel */
+    --primary: 132 75% 45%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 132 85% 60%;
+
+    /* Dark electric secondary */
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Electric accent */
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 132 75% 45%;
+
+    /* Electric gradients */
+    --gradient-electric: linear-gradient(135deg, hsl(132 75% 45%), hsl(195 100% 50%));
+    --gradient-energy: linear-gradient(180deg, hsl(132 85% 60% / 0.1), hsl(195 100% 50% / 0.1));
+    --gradient-dark: linear-gradient(135deg, hsl(220 25% 15%), hsl(220 35% 25%));
+    
+    /* Electric shadows */
+    --shadow-electric: 0 0 30px hsl(132 75% 45% / 0.3);
+    --shadow-glow: 0 0 50px hsl(132 85% 60% / 0.4);
+    --shadow-deep: 0 20px 40px hsl(220 25% 15% / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark electric theme */
+    --background: 220 25% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 132 75% 45%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 132 85% 60%;
+
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 132 75% 45%;
+
+    /* Dark electric gradients */
+    --gradient-electric: linear-gradient(135deg, hsl(132 75% 45%), hsl(195 100% 50%));
+    --gradient-energy: linear-gradient(180deg, hsl(132 85% 60% / 0.2), hsl(195 100% 50% / 0.2));
+    --gradient-dark: linear-gradient(135deg, hsl(220 25% 8%), hsl(220 30% 15%));
+    
+    /* Enhanced shadows for dark mode */
+    --shadow-electric: 0 0 40px hsl(132 75% 45% / 0.5);
+    --shadow-glow: 0 0 60px hsl(132 85% 60% / 0.6);
+    --shadow-deep: 0 25px 50px hsl(220 25% 5% / 0.8);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Electric animations */
+  .electric-glow {
+    box-shadow: var(--shadow-electric);
+  }
+  
+  .pulse-electric {
+    animation: pulse-electric 2s infinite;
+  }
+  
+  .gradient-electric {
+    background: var(--gradient-electric);
+  }
+  
+  .gradient-energy {
+    background: var(--gradient-energy);
+  }
+  
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-electric);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes pulse-electric {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(132 75% 45% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(132 75% 45% / 0.6);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
